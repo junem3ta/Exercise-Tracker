@@ -1,7 +1,12 @@
 require('dotenv').config();
 
 const express = require('express'),
+connectDB = require('./config/db'),
 app = express();
+
+console.log(process.env.ETMongoURI);
+
+connectDB();
 
 app.use(express.static('public'))
 app.get('/', (req, res) => {
